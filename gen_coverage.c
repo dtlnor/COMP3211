@@ -7,12 +7,10 @@ int main(int argc, char *argv[]){
 	char coverageData[32] = "bugAlgo.c.gcov";
 	char bugResultFile[32] = "bugAlgoResult.csv";
 	char trueResultFile[32] = "trueAlgoResult.csv";
-	char c;
-	
 	char* bugResult = argv[1];
 	char* trueResult = argv[2];
+
 	FILE *log;
-	
 	char buffer[128];
 	
 	//append bugAlgoFile.csv to bugAlgoResult.csv
@@ -36,15 +34,17 @@ int main(int argc, char *argv[]){
 	fclose(log);
 	
 
-	printf("bug: %s true: %s \n", argv[1], argv[2]);
+	//printf("bug: %s true: %s \n", argv[1], argv[2]);
 
+	int resultSuccessful;
 	//find if bug result is same as true result
 	if (strcmp(bugResult, trueResult) == 0) {
-		printf("true");
-
+		//printf("success");
+		resultSuccessful = 0;
 	}
 	else {
-		printf("false");
+		//printf("fail");
+		resultSuccessful = 1;
 	}
 	
 	
@@ -53,20 +53,30 @@ int main(int argc, char *argv[]){
 		printf("Error: File cannot be open \n");
 		return 1;
 	}
-	
-	int i = 0;
 
+	int lineOfCode = 0;
+	int *statementCoverage;
     char line[128];
+
     while ( fgets ( line, sizeof line, log ) != NULL ) { /* read a line */
 		//printf("%s",line);
-		
 		if (line[8] != '-'){
-			i++;
+			lineOfCode++;
+			statementCoverage = malloc(sizeof(int));
+			if (line[8] == '#') {
+				statementCoverage[lineOfCode - 1] = 1;
+			}
+			else {
+				statementCoverage[lineOfCode - 1] = 0;
+			}
+
+
+
 		}
 	
     }
 
-	printf("%d\n\n", i);
+	//printf("%d\n\n", i);
 
 	fclose(log);
 	
