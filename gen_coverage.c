@@ -15,11 +15,21 @@ int main(){
 		return 1;
 	}
 	
-	while ((c = getc(log)) != EOF)
-        putchar(c);
-	
-	fclose(log);
+	int i = 0;
 
+    char line[128];
+    while ( fgets ( line, sizeof line, log ) != NULL ) { /* read a line */
+		//printf("%s",line);
+		
+		if (line[8] != '-'){
+			i++;
+		}
+	
+    }
+
+	printf("%d\n\n", i);
+
+	fclose(log);
 	return 0;
 
 }
