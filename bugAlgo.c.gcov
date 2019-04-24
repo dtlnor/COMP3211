@@ -5,17 +5,43 @@
         -:    0:Programs:1
         -:    1:#include <stdio.h>
         -:    2:#include <stdlib.h>
-        1:    3:int main(){
-        1:    4:	int arr[] = {5,4,3,2,1};
-        1:    5:	int n = 5;
-        -:    6:	int i, j;
-        -:    7:	int temp;
-        5:    8:	for (i = 0; i < n - 1; i += 1)
-       10:    9:		for (j = 0; j < n - i - 1; j += 2)//bugs here, true: j += 1
-        6:   10:			if (arr[j] > arr[j + 1]) {
-        2:   11:				temp = arr[j];
-        2:   12:				arr[j] = arr[j+1];
-        2:   13:				arr[j+1] = temp;
-        -:   14:			}
-        1:   15:	return 0;
-        -:   16:}
+        -:    3:#include <string.h>
+        -:    4:
+        1:    5:int main(int argc, char *argv[]){
+        -:    6:	
+        1:    7:	int arr[argc - 1];
+        1:    8:	int n = argc - 1;
+        -:    9:	int i, j;
+        -:   10:	int temp;
+        -:   11:	
+        6:   12:	for (i = 0; i < n; i++) {
+        5:   13:		arr[i] = atoi(argv[i+1]);
+        -:   14:	}
+        -:   15:	
+        -:   16:	//printf("%d %d %d %d %d\n", arr[0], arr[1],arr[2],arr[3],arr[4]);
+        -:   17:	
+        5:   18:	for (i = 0; i < n - 1; i += 1) {
+       10:   19:		for (j = 0; j < n - i - 1; j += 2) {//bugs here, true: j += 1
+        6:   20:			if (arr[j] > arr[j + 1]) {
+        2:   21:				temp = arr[j];
+        2:   22:				arr[j] = arr[j+1];
+        2:   23:				arr[j+1] = temp;
+        -:   24:			}
+        -:   25:		}
+        -:   26:	}
+        -:   27:	
+        -:   28:	//print result	
+        1:   29:	char filename[16] = "result.csv";
+        -:   30:	char buffer[128];
+        -:   31:	//open file
+        1:   32:	FILE *log = fopen(filename, "a");
+        1:   33:	if (NULL == log) {
+    #####:   34:		printf("Error: File cannot be open/create \n");
+    #####:   35:		return 1;
+        -:   36:	}
+        1:   37:	sprintf(buffer, "%d,%d,%d,%d,%d\n", arr[0], arr[1],arr[2],arr[3],arr[4]);
+        1:   38:	fwrite(buffer, sizeof(char), strlen(buffer), log);
+        1:   39:	fclose(log);
+        1:   40:	return 0;
+        -:   41:	
+        -:   42:}
