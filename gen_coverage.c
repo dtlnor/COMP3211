@@ -35,7 +35,17 @@ int main(int argc, char *argv[]){
 	
 	fclose(log);
 	
-	
+
+	printf("bug: %s true: %s \n", argv[1], argv[2]);
+
+	//find if bug result is same as true result
+	if (strcmp(bugResult, trueResult) == 0) {
+		printf("true");
+
+	}
+	else {
+		printf("false");
+	}
 	
 	
 	log = fopen(coverageData, "r");
@@ -59,8 +69,6 @@ int main(int argc, char *argv[]){
 	printf("%d\n\n", i);
 
 	fclose(log);
-	
-	printf("bug: %s true: %s \n", argv[1],argv[2]);
 	
 	return 0;
 

@@ -11,10 +11,11 @@ gen_gcov() {
   ./trueAlgo $1 $2 $3 $4 $5 > trueAlgoFile.csv
   trueVar=$(cat trueAlgoFile.csv)
   
+  gcov bugAlgo.c
+  
   gcc gen_coverage.c -o gen_coverage
   ./gen_coverage "${bugVar[@]}" "${trueVar[@]}"
   
-  gcov bugAlgo.c
   #nano bugAlgo.c.gcov
   
 }
