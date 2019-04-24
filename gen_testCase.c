@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <time.h>
 #define randomSize 10
-#define testcaseSize 4
+#define testcaseSize 100
 
 int main(){
 

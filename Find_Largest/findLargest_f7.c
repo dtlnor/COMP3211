@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 			if (arr[j] >= x) x = arr[j];
 		}			
 		else{
-			if (arr[j+1] >= x) x = arr[j+1];
+			if (arr[j+1] >= x) x = arr[j];   // fault
 		}
 	}
 	printf ("%d\n",x);

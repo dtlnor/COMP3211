@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	int i,j;
 	int x = 0;
 	
-	for (i = 0; i < n; i++) {
+	for (i = 1; i < n; i++) { // fault
 		arr[i] = atoi(argv[i+1]);
 	}
 

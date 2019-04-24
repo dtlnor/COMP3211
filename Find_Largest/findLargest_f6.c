@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 		
 		if (arr[j]>=arr[j+1])
 		{			
-			if (arr[j] >= x) x = arr[j];
+			if (arr[j] <= x) x = arr[j];  // fault
 		}			
 		else{
 			if (arr[j+1] >= x) x = arr[j+1];
