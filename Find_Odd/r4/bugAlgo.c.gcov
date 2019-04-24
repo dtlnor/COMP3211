@@ -1,0 +1,55 @@
+        -:    0:Source:bugAlgo.c
+        -:    0:Graph:bugAlgo.gcno
+        -:    0:Data:bugAlgo.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:
+        1:    5:int main(int argc, char *argv[])
+        1:    6:{
+        1:    7:	int arr[argc - 1];
+        1:    8:	int n = argc - 1;
+        -:    9:	int i;
+        1:   10:	int output[argc - 1];
+        -:   11:
+        6:   12:	for (i = 0; i < n; i++) {
+        5:   13:		arr[i] = atoi(argv[i+1]);
+        5:   14:		output[i] = 0;
+        -:   15:	}
+        -:   16:
+        1:   17:	if ( arr[0] % 2 == 0 ){ //even
+    #####:   18:		output[0] = 0;
+        -:   19:	} else { //odd
+        1:   20:		output[0] = 1;
+        -:   21:	}
+        -:   22:
+        1:   23:	if ( arr[1] % 2 == 0 ){ //even
+        1:   24:		output[1] = 0;
+        -:   25:	} else { //odd
+    #####:   26:		output[1] = 1;
+        -:   27:	}
+        -:   28:	
+        1:   29:	if ( arr[2] % 2 == 0 ){ //even
+        1:   30:		output[2] = 0;
+        -:   31:	} else { //odd
+    #####:   32:		output[2] = 1;
+        -:   33:	}
+        -:   34:	
+        1:   35:	if ( arr[3] % 2 == 0 ){ //even
+        1:   36:		output[3] = 0;
+        -:   37:	} else { //odd
+    #####:   38:		output[3] = 1;
+        -:   39:	}
+        -:   40:	
+        1:   41:	if ( arr[4] % 2 == 0 ){ //even
+    #####:   42:		output[4] = 0;
+        -:   43:	} else { //odd
+        1:   44:		output[4] = 1;
+        -:   45:	}
+        -:   46:	
+        1:   47:	printf ("%d,%d,%d,%d,%d\n",output[0], output[1],output[2],output[3],output[1]); //fault
+        -:   48:    
+        1:   49:    return 0;
+        -:   50:}
