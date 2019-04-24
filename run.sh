@@ -4,12 +4,16 @@ gen_gcov() {
 
   gcc bugAlgo.c -fprofile-arcs -ftest-coverage -o bugAlgo
   ./bugAlgo $1 $2 $3 $4 $5
+  gcc trueAlgo.c -o trueAlgo
+  ./trueAlgo $1 $2 $3 $4 $5
+  
   gcov bugAlgo.c 
   #nano bugAlgo.c.gcov
   
 }
 
 #main
+rm -rf testcase.csv bugAlgoResult.csv trueAlgoResult.csv
 
 #gen testcase
 gcc gen_testCase.c -o gen_testCase
@@ -25,6 +29,6 @@ do
 
 done < "$input"
 
-rm -rf bugAlgo gen_testCase bugAlgo.gcda bugAlgo.gcno 
+rm -rf bugAlgo trueAlgo gen_testCase bugAlgo.gcda bugAlgo.gcno 
 
 echo end
