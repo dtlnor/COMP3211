@@ -37,6 +37,6 @@ do
 
 done < "$input"
 
-rm -rf bugAlgo trueAlgo gen_testCase bugAlgo.gcda bugAlgo.gcno trueAlgoFile.csv bugAlgoFile.csv gen_coverage bugAlgo.c.gcov
+rm -rf bugAlgo trueAlgo gen_testCase bugAlgo.gcda bugAlgo.gcno trueAlgoFile.csv bugAlgoFile.csv gen_coverage #bugAlgo.c.gcov
 
 echo end
