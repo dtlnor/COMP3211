@@ -20,12 +20,12 @@
         -:   15:
         5:   16:	for (j = 0; j < n-1; j++){
         -:   17:		
-        4:   18:		if (arr[j]>=arr[j+1])
+        4:   18:		if (arr[j] >= arr[j+1])
         -:   19:		{			
-        2:   20:			if (arr[j] >= x) x = arr[j];
+        2:   20:			if (arr[j] <= x) x = arr[j];  // fault
         -:   21:		}			
         -:   22:		else{
-        2:   23:			if (arr[j+1] >= x) x = arr[j];   // fault
+        2:   23:			if (arr[j+1] >= x) x = arr[j+1];
         -:   24:		}
         -:   25:	}
         1:   26:	printf ("%d\n",x);
