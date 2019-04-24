@@ -31,17 +31,8 @@
         -:   26:	}
         -:   27:	
         -:   28:	//print result	
-        1:   29:	char filename[32] = "bugAlgoResult.csv";
-        -:   30:	char buffer[128];
-        -:   31:	//open file
-        1:   32:	FILE *log = fopen(filename, "a");
-        1:   33:	if (NULL == log) {
-    #####:   34:		printf("Error: File cannot be open/create \n");
-    #####:   35:		return 1;
-        -:   36:	}
-        1:   37:	sprintf(buffer, "%d,%d,%d,%d,%d\n", arr[0], arr[1],arr[2],arr[3],arr[4]);
-        1:   38:	fwrite(buffer, sizeof(char), strlen(buffer), log);
-        1:   39:	fclose(log);
-        1:   40:	return 0;
-        -:   41:	
-        -:   42:}
+        1:   29:	printf("%d,%d,%d,%d,%d", arr[0], arr[1],arr[2],arr[3],arr[4]);
+        -:   30:	
+        1:   31:	return 0;
+        -:   32:	
+        -:   33:}

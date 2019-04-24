@@ -2,14 +2,43 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(){
+int main(int argc, char *argv[]){
 	
 	char coverageData[32] = "bugAlgo.c.gcov";
-	char bugResult[32] = "bugAlgoResult.csv";
-	char trueResult[32] = "trueAlgoResult.csv";
+	char bugResultFile[32] = "bugAlgoResult.csv";
+	char trueResultFile[32] = "trueAlgoResult.csv";
 	char c;
 	
-	FILE *log = fopen(coverageData, "r");
+	char* bugResult = argv[1];
+	char* trueResult = argv[2];
+	FILE *log;
+	
+	char buffer[128];
+	
+	//append bugAlgoFile.csv to bugAlgoResult.csv
+	log = fopen(bugResultFile, "a");
+	if (NULL == log) {
+		log = fopen(bugResultFile, "w");
+	}
+	sprintf(buffer, "%s\n", bugResult);
+	fwrite(buffer, sizeof(char), strlen(buffer), log);
+	
+	fclose(log);
+	
+	//append bugAlgoFile.csv to trueAlgoResult.csv
+	log = fopen(trueResultFile, "a");
+	if (NULL == log) {
+		log = fopen(trueResultFile, "w");
+	}
+	sprintf(buffer, "%s\n", trueResult);
+	fwrite(buffer, sizeof(char), strlen(buffer), log);
+	
+	fclose(log);
+	
+	
+	
+	
+	log = fopen(coverageData, "r");
 	if (NULL == log) {
 		printf("Error: File cannot be open \n");
 		return 1;
@@ -30,6 +59,9 @@ int main(){
 	printf("%d\n\n", i);
 
 	fclose(log);
+	
+	printf("bug: %s true: %s \n", argv[1],argv[2]);
+	
 	return 0;
 
 }

@@ -26,17 +26,8 @@ int main(int argc, char *argv[]){
 	}
 	
 	//print result	
-	char filename[32] = "trueAlgoResult.csv";
-	char buffer[128];
-	//open file
-	FILE *log = fopen(filename, "a");
-	if (NULL == log) {
-		printf("Error: File cannot be open/create \n");
-		return 1;
-	}
-	sprintf(buffer, "%d,%d,%d,%d,%d\n", arr[0], arr[1],arr[2],arr[3],arr[4]);
-	fwrite(buffer, sizeof(char), strlen(buffer), log);
-	fclose(log);
+	printf("%d,%d,%d,%d,%d", arr[0], arr[1],arr[2],arr[3],arr[4]);
+	
 	return 0;
 	
 }
