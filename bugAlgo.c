@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
 	}
 	
 	//print result	
-	char filename[16] = "result.csv";
+	char filename[32] = "bugAlgoResult.csv";
 	char buffer[128];
 	//open file
 	FILE *log = fopen(filename, "a");

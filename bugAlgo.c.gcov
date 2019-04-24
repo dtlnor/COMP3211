@@ -23,15 +23,15 @@
         5:   18:	for (i = 0; i < n - 1; i += 1) {
        10:   19:		for (j = 0; j < n - i - 1; j += 2) {//bugs here, true: j += 1
         6:   20:			if (arr[j] > arr[j + 1]) {
-        2:   21:				temp = arr[j];
-        2:   22:				arr[j] = arr[j+1];
-        2:   23:				arr[j+1] = temp;
+    #####:   21:				temp = arr[j];
+    #####:   22:				arr[j] = arr[j+1];
+    #####:   23:				arr[j+1] = temp;
         -:   24:			}
         -:   25:		}
         -:   26:	}
         -:   27:	
         -:   28:	//print result	
-        1:   29:	char filename[16] = "result.csv";
+        1:   29:	char filename[32] = "bugAlgoResult.csv";
         -:   30:	char buffer[128];
         -:   31:	//open file
         1:   32:	FILE *log = fopen(filename, "a");

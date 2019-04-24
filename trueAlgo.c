@@ -1,33 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-void swap(int *xp, int *yp)
-{
-	int temp = *xp;
-	*xp = *yp;
-	*yp = temp;
-}
-
-// Driver program to test above functions 
-int main()
-{
-	int arr[5];
-	int n = 5;
+int main(int argc, char *argv[]){
+	
+	int arr[argc - 1];
+	int n = argc - 1;
 	int i, j;
-
-	scanf("%d %d %d %d %d", &arr[0], &arr[1], &arr[2], &arr[3], &arr[4]);
-
-	for (i = 0; i < n - 1; i += 1) { 
-		for (j = 0; j < n - i - 1; j += 1) { //bugs here, true: j += 1
+	int temp;
+	
+	for (i = 0; i < n; i++) {
+		arr[i] = atoi(argv[i+1]);
+	}
+	
+	//printf("%d %d %d %d %d\n", arr[0], arr[1],arr[2],arr[3],arr[4]);
+	
+	for (i = 0; i < n - 1; i += 1) {
+		for (j = 0; j < n - i - 1; j += 1) {//here, false: j += 2
 			if (arr[j] > arr[j + 1]) {
-				swap(&arr[j], &arr[j + 1]);
+				temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
 			}
 		}
 	}
-
-	//out put sorted arr
-	//for (i = 0; i < n; i++)
-	//	printf("%d ", arr[i]);
-
+	
+	//print result	
+	char filename[32] = "trueAlgoResult.csv";
+	char buffer[128];
+	//open file
+	FILE *log = fopen(filename, "a");
+	if (NULL == log) {
+		printf("Error: File cannot be open/create \n");
+		return 1;
+	}
+	sprintf(buffer, "%d,%d,%d,%d,%d\n", arr[0], arr[1],arr[2],arr[3],arr[4]);
+	fwrite(buffer, sizeof(char), strlen(buffer), log);
+	fclose(log);
 	return 0;
+	
 }
