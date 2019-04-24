@@ -18,7 +18,7 @@ int main(int argc, char *argv[]){
 	for (i = 0; i < n - 1; i += 1) {
 		for (j = 0; j < n - i - 1; j += 1) {
 			if (arr[j] > arr[j + 1]) {
-				temp = arr[j];
+				temp = arr[j+1];  //bugs here, true: temp = arr[j];
 				arr[j] = arr[j+1];
 				arr[j+1] = temp;
 			}

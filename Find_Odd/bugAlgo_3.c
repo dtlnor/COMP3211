@@ -22,9 +22,9 @@ int main(int argc, char *argv[])
 	}
 	
 	if ( arr[1] % 2 == 0 ){ //even
-		output[1] = 1;	//fault
+		output[1] = 0;
 	} else { //odd
-		output[1] = 1;
+		output[0] = 1; //fault
 	}
 	
 	if ( arr[2] % 2 == 0 ){ //even

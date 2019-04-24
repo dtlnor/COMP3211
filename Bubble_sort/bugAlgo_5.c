@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
 			if (arr[j] > arr[j + 1]) {
 				temp = arr[j];
 				arr[j] = arr[j+1];
-				arr[j+1] = temp;
+				arr[j] = temp;  //bugs here, true: arr[j+1] = temp;
 			}
 		}
 	}

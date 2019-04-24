@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	}
 	
 	if ( arr[1] % 2 == 0 ){ //even
-		output[1] = 1;	//fault
+		output[1] = 0;
 	} else { //odd
 		output[1] = 1;
 	}
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 		output[2] = 1;
 	}
 	
-	if ( arr[3] % 2 == 0 ){ //even
+	if ( arr[3] % 2 == 1 ){ //even //fault
 		output[3] = 0;
 	} else { //odd
 		output[3] = 1;

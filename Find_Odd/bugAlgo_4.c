@@ -8,21 +8,20 @@ int main(int argc, char *argv[])
 	int n = argc - 1;
 	int i;
 	int output[argc - 1];
-	
+
 	for (i = 0; i < n; i++) {
 		arr[i] = atoi(argv[i+1]);
 		output[i] = 0;
 	}
-
 
 	if ( arr[0] % 2 == 0 ){ //even
 		output[0] = 0;
 	} else { //odd
 		output[0] = 1;
 	}
-	
+
 	if ( arr[1] % 2 == 0 ){ //even
-		output[1] = 1;	//fault
+		output[1] = 0;
 	} else { //odd
 		output[1] = 1;
 	}
@@ -45,8 +44,7 @@ int main(int argc, char *argv[])
 		output[4] = 1;
 	}
 	
-	
-	printf ("%d,%d,%d,%d,%d\n",output[0], output[1],output[2],output[3],output[4]);
+	printf ("%d,%d,%d,%d,%d\n",output[0], output[1],output[2],output[3],output[1]); //fault
     
     return 0;
 }

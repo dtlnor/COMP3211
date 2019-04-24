@@ -15,7 +15,7 @@ int main(int argc, char *argv[]){
 	
 	//printf("%d %d %d %d %d\n", arr[0], arr[1],arr[2],arr[3],arr[4]);
 	
-	for (i = 0; i < n - 1; i += 1) {
+	for (i = 0; i < n - 1; i += 2) {  //bugs here, true: i += 1
 		for (j = 0; j < n - i - 1; j += 1) {
 			if (arr[j] > arr[j + 1]) {
 				temp = arr[j];

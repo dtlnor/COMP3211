@@ -21,7 +21,7 @@ gen_gcov() {
 }
 
 #main
-rm -rf testcase.csv bugAlgoResult.csv trueAlgoResult.csv coverageResult.csv
+rm -rf testcase.csv bugAlgoResult.csv trueAlgoResult.csv coverageResult.csv TarantulaResult.csv CrossTabResult.csv
 
 #gen testcase
 gcc gen_testCase.c -o gen_testCase
@@ -37,6 +37,8 @@ do
 
 done < "$input"
 
-rm -rf bugAlgo trueAlgo gen_testCase bugAlgo.gcda bugAlgo.gcno trueAlgoFile.csv bugAlgoFile.csv gen_coverage #bugAlgo.c.gcov
+rm -rf bugAlgo trueAlgo gen_testCase bugAlgo.gcda bugAlgo.gcno trueAlgoFile.csv bugAlgoFile.csv gen_coverage bugAlgo.c.gcov
+
+bash runDebug.sh
 
 echo end

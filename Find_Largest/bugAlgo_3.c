@@ -9,13 +9,13 @@ int main(int argc, char *argv[])
 	int i,j;
 	int x = 0;
 	
-	for (i = 0; i < n; i++) { 
+	for (i = 0; i < n; i++) {
 		arr[i] = atoi(argv[i+1]);
 	}
 
-	for (j = 0; j < n; j++){// fault
+	for (j = 0; j < n-1; j++){
 		
-		if (arr[j]>=arr[j+1])
+		if (arr[j] < arr[j+1]) // fault
 		{			
 			if (arr[j] >= x) x = arr[j];
 		}			
