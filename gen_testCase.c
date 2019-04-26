@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <time.h>
-#define randomSize 10
+#define randomSize 100
 #define testcaseSize 100
 
 int main(){
